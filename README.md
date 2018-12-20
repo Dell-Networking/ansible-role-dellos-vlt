@@ -24,9 +24,9 @@ Role variables
 | Key        | Type                      | Description                                             | Support               |
 |------------|---------------------------|---------------------------------------------------------|-----------------------|
 | ``domain``       | integer (required)        | Configures the VLT domain identification number (1 to 1000) | dellos9, dellos10 |
-| ``backup_destination`` | string    | Configures an IPv4 address for the VLT backup link (A.B.C.D format or X:X:X:X::X format) | dellos9 |
-| ``destination_type``  | string    | Configures the backup destination based on this destination type (IPv4 or IPv6)| dellos9 |
-| ``backup_destination_vrf``      | string         | Configures the virtual routing and forwarding (VRF) instance through which the backup destination IP is reachable (*vrfname* must be present)  | dellos9 |
+| ``backup_destination`` | string    | Configures an IPv4 address for the VLT backup link (A.B.C.D format or X:X:X:X::X format) | dellos9, dellos10 |
+| ``destination_type``  | string    | Configures the backup destination based on this destination type (IPv4 or IPv6)| dellos9, dellos10 |
+| ``backup_destination_vrf``      | string         | Configures the virtual routing and forwarding (VRF) instance through which the backup destination IP is reachable (*vrfname* must be present)  | dellos9, dellos10 |
 | ``VLTi``    | integer        | Configures the peer link port-channel ID for the VLT domain (1 to 4096) | dellos9 |
 | ``discovery_intf``    | string        | Configures the discovery interface for the VLT domain (range of interfaces)| dellos10 |
 | ``discovery_intf_state``        | string: absent,present       | Deletes the discovery interfaces for the VLT domain if set to absent | dellos10 |
