@@ -8,7 +8,7 @@ dellos_vlt:
     destination_type: ipv4
     backup_destination_vrf: test
     priority: 1
-    VLTi: 100 
+    VLTi: 100
     peer_routing: True
     peer_routing_timeout: 200
     multicast_peer_routing_timeout: 250
