@@ -6,6 +6,9 @@ Configure VLT commands fon dellos10 Devices.
 
 dellos_vlt:
    domain: 1
+   backup_destination: "192.168.1.1"
+   destination_type: "ipv4"
+   backup_destination_vrf: "management"
    discovery_intf: 1/1/12
    discovery_intf_state: present
    peer_routing: True
@@ -22,6 +25,23 @@ dellos_vlt:
 no vlt-domain {{ dellos_vlt.domain }}
     {% else %}
 vlt-domain {{ dellos_vlt.domain }}
+    {% if dellos_vlt.backup_destination is defined %}
+      {% if dellos_vlt.backup_destination %}
+        {% if dellos_vlt.destination_type is defined %}
+          {% if dellos_vlt.destination_type == "ipv6" %}
+ backup destination ipv6 {{ dellos_vlt.backup_destination }}
+          {% elif dellos_vlt.destination_type == "ipv4" %}
+            {% if dellos_vlt.backup_destination_vrf is defined and dellos_vlt.backup_destination_vrf %}
+ backup destination {{ dellos_vlt.backup_destination }} vrf {{ dellos_vlt.backup_destination_vrf }}
+            {% else %}
+ backup destination {{ dellos_vlt.backup_destination }}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% else %}
+ no backup destination
+      {% endif %}
+    {% endif %}
     {% if dellos_vlt.discovery_intf_state is defined and dellos_vlt.discovery_intf_state == "absent" %}
       {% if dellos_vlt.discovery_intf is defined and dellos_vlt.discovery_intf %}
  no discovery-interface ethernet{{ dellos_vlt.discovery_intf }}
