@@ -1,6 +1,5 @@
 ---
 # vars file for Dell-Networking.dellos-vlt, below gives a example configuration
-
 # Sample variables for dellos9 device
 dellos_vlt:
     domain: 3
@@ -52,6 +51,3 @@ dellos_vlt:
       Po 12:
        peer_lag: 13
     state: present
-
-
-
