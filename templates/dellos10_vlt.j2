@@ -1,9 +1,7 @@
 #jinja2: trim_blocks: True,lstrip_blocks: True
 {################################
-
 Purpose:
 Configure VLT commands fon dellos10 Devices.
-
 dellos_vlt:
    domain: 1
    backup_destination: "192.168.1.1"
@@ -17,7 +15,6 @@ dellos_vlt:
      Po 12:
       peer_lag: 13
    state: present
-
 ################################}
 {% if dellos_vlt is defined and dellos_vlt %}
   {% if dellos_vlt.domain is defined and dellos_vlt.domain %}
