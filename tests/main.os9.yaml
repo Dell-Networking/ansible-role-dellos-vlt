@@ -36,18 +36,3 @@ dellos_vlt:
        peer_lag: 14
     unit_id: 1
     state: present
-
-# Sample variables for dellos10 device
-dellos_vlt:
-    domain: 1
-    backup_destination: "192.168.211.175"
-    destination_type: "ipv4"
-    backup_destination_vrf:
-    discovery_intf: 1/1/12
-    discovery_intf_state: present
-    peer_routing: True
-    vlt_mac: aa:aa:aa:aa:aa:aa
-    vlt_peers:
-      Po 12:
-       peer_lag: 13
-    state: present
